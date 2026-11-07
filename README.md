@@ -115,7 +115,7 @@ Click the icon once and you get one fast, good-looking page with all your sites 
 TabHive isn't on the stores yet (see the [roadmap](#-roadmap)), so you load it directly. It takes about a minute.
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/tabhive.git
+git clone https://github.com/HassanGaddafi/tabhive.git
 ```
 
 Or just download the ZIP from GitHub and unzip it. The folder with `manifest.json` in it is the extension.
