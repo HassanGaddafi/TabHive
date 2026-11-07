@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "TabHive – خلية المواقع",
+  "version": "2.0.0",
+  "description": "Save, organize and search all your open tabs & sites. احفظ ونظّم وابحث في كل تبويباتك ومواقعك.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "tabGroups",
+    "contextMenus"
+  ],
+  "action": {
+    "default_title": "TabHive",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "scripts": [
+      "common.js",
+      "background.js"
+    ]
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "tabhive@example.com",
+      "strict_min_version": "128.0"
+    }
+  },
+  "commands": {
+    "quick-search": {
+      "suggested_key": {
+        "default": "Alt+K",
+        "mac": "MacCtrl+K"
+      },
+      "description": "Quick search / بحث سريع"
+    }
+  },
+  "optional_permissions": [
+    "bookmarks"
+  ],
+  "optional_host_permissions": [
+    "<all_urls>"
+  ]
+}

@@ -1,0 +1,9 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>TabHive</title><link rel="stylesheet" href="app.css">
+<style>body{padding:16px;overflow:hidden}.search{box-shadow:none}ul{list-style:none;margin:12px 0 0;padding:0}
+li{display:flex;gap:12px;align-items:center;padding:10px 12px;border-radius:12px;cursor:pointer;border:1px solid transparent}
+li.on{background:var(--panel);border-color:var(--accent)}li img{width:28px;height:28px;border-radius:7px}
+li div{min-width:0;flex:1}li b,li small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}li small{color:var(--muted);font-size:12px}
+li kbd{color:var(--muted);font-size:12px}</style></head>
+<body><div class="search"><span>🔍</span><input id="q" autocomplete="off" autofocus></div><ul id="res"></ul>
+<script src="common.js"></script><script src="quick.js"></script></body></html>

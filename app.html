@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TabHive</title><link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="logo">▦</span><b>TabHive</b></div>
+  <div class="search"><span>🔍</span><input id="q" autocomplete="off"></div>
+  <div class="actions">
+    <button id="saveAll" class="primary" data-i18n="saveAll"></button>
+    <button id="addBtn" data-i18n="add"></button>
+    <button id="newGroup" data-i18n="newGroup"></button>
+    <button id="selBtn" data-i18n="select"></button>
+    <label class="switch"><input type="checkbox" id="auto"><i></i><span data-i18n="auto"></span></label>
+    <button id="themeBtn" class="icon"></button>
+    <button id="langBtn" class="icon"></button>
+    <div class="menuwrap"><button id="moreBtn" class="icon">⋯</button>
+      <div id="menu" hidden>
+        <button id="mExport" data-i18n="export"></button>
+        <button id="mImport" data-i18n="import"></button>
+        <button id="mBookmarks" data-i18n="bookmarks"></button>
+        <button id="mDupes" data-i18n="dupes"></button>
+        <button id="mCheck" data-i18n="check"></button>
+        <button id="mNewtab"></button>
+        <button id="mTrash"><span data-i18n="trash"></span> (<span id="trashCount">0</span>)</button>
+      </div></div>
+  </div>
+</header>
+<div id="bar">
+  <label><span data-i18n="sortBy"></span> <select id="sort">
+    <option value="manual" data-i18n="sManual"></option><option value="recent" data-i18n="sRecent"></option>
+    <option value="alpha" data-i18n="sAlpha"></option><option value="used" data-i18n="sUsed"></option></select></label>
+  <button id="viewBtn" class="icon"></button>
+  <label class="sz">🔎 <input type="range" id="size" min="100" max="240" step="10"></label>
+  <button id="deadBtn" hidden></button>
+</div>
+<div id="selbar" hidden>
+  <span id="selCount"></span>
+  <button id="selAll" data-i18n="selAll"></button>
+  <button id="selDel" class="danger" data-i18n="delete"></button>
+  <button id="selCancel" data-i18n="cancel"></button>
+</div>
+<main id="groups"></main>
+<div id="empty" hidden></div>
+<div id="ctx" hidden></div>
+<dialog id="addDlg">
+  <h3 data-i18n="addTitle"></h3>
+  <textarea id="urls" rows="6" dir="ltr"></textarea>
+  <div class="row"><button id="pickFolder" data-i18n="pickFolder"></button><button id="pickFiles" data-i18n="pickFiles"></button></div>
+  <input type="file" id="folderIn" webkitdirectory multiple hidden><input type="file" id="filesIn" multiple hidden accept=".lnk,.url,.webloc,.desktop,.html,.htm,.txt">
+  <label class="row"><span data-i18n="toGroup"></span><select id="gsel"></select></label>
+  <div class="row end"><button id="addCancel" data-i18n="cancel"></button><button id="addOk" class="primary" data-i18n="add"></button></div>
+</dialog>
+<dialog id="itemDlg">
+  <h3 data-i18n="edit"></h3>
+  <label data-i18n="fTitle"></label><input id="iTitle">
+  <label data-i18n="fNote"></label><textarea id="iNote" rows="3"></textarea>
+  <label data-i18n="fTags"></label><input id="iTags">
+  <label data-i18n="toGroup"></label><select id="iGroup"></select>
+  <div class="row end"><button id="iCancel" data-i18n="cancel"></button><button id="iSave" class="primary" data-i18n="save"></button></div>
+</dialog>
+<dialog id="grpDlg">
+  <h3 data-i18n="editGroup"></h3>
+  <label data-i18n="fTitle"></label><input id="gName">
+  <div class="row"><label><span data-i18n="gEmoji"></span> <input id="gEmoji" maxlength="4" class="em"></label>
+    <label><span data-i18n="gColor"></span> <input id="gColor" type="color" value="#5b6cff"></label>
+    <button id="gNoColor" data-i18n="noColor"></button></div>
+  <label data-i18n="gPin"></label><input id="gPin" type="password" autocomplete="new-password">
+  <button id="gUnlock" data-i18n="removeLock" hidden></button>
+  <div class="row end"><button id="gCancel" data-i18n="cancel"></button><button id="gSave" class="primary" data-i18n="save"></button></div>
+</dialog>
+<input type="file" id="importIn" accept=".json" hidden>
+<dialog id="trashDlg">
+  <h3 data-i18n="trash"></h3>
+  <div class="row end" style="margin:0 0 8px"><button id="restoreAll" data-i18n="restoreAll"></button><button id="emptyTrash" class="danger" data-i18n="emptyTrash"></button><button id="trashClose" data-i18n="close"></button></div>
+  <div id="trashList"></div><p id="trashEmpty" class="hst" data-i18n="trashEmpty"></p>
+</dialog>
+<div id="drop" hidden></div>
+<div id="toast"></div>
+<script src="common.js"></script><script src="app.js"></script>
+</body>
+</html>
