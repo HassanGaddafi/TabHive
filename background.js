@@ -2,19 +2,12 @@ if (typeof importScripts === 'function') importScripts('common.js');
 
 const pageUrl = () => api.runtime.getURL('app.html');
 
-api.action.onClicked.addListener(async () => {
-  const tabs = await api.tabs.query({ url: pageUrl() });
-  if (tabs[0]) {
-    api.tabs.update(tabs[0].id, { active: true });
-    api.windows.update(tabs[0].windowId, { focused: true });
-  } else api.tabs.create({ url: pageUrl() });
-});
 
-// حفظ تلقائي: أي موقع يُفتح يُحفظ ولا يُحذف أبدًا إلا يدويًا
+// حفظ تلقائي (اختياري، متوقف افتراضيًا): يعمل فقط إذا فعّله المستخدم. الحفظ الافتراضي يتم من نافذة الأيقونة
 api.tabs.onUpdated.addListener((id, ch, tab) => {
   if (ch.status !== 'complete' || !tab.url) return;
   mutate(d => {
-    if (d.settings.auto === false) return false;
+    if (d.settings.auto !== true) return false;
     const u = normUrl(tab.url);
     if ((d.trash || []).some(i => normUrl(i.url) === u)) return false;   // لا نعيد حفظ موقع حذفه المستخدم
     return addUrls(d, [{ url: tab.url, title: tab.title, favicon: tab.favIconUrl }]) ? undefined : false;

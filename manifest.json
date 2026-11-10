@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TabHive – خلية المواقع",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Save, organize and search all your open tabs & sites. احفظ ونظّم وابحث في كل تبويباتك ومواقعك.",
   "permissions": [
     "tabs",
@@ -15,7 +15,8 @@
       "16": "icons/16.png",
       "32": "icons/32.png",
       "48": "icons/48.png"
-    }
+    },
+    "default_popup": "popup.html"
   },
   "background": {
     "service_worker": "background.js",
